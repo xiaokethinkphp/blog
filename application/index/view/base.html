@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>Single Post</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="__INDEX__/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__INDEX__/css/font-awesome/css/font-awesome.min.css">
+   	<link rel="stylesheet" href="__INDEX__/css/style.css" id="theme-styles">
+   	<script src="__INDEX__/js/bootstrap.min.js"></script>
+    <script src="__INDEX__/js/modernizr.js"></script>
+</head>
+<body>
+	{block name="top"}{include file="public/top"}{/block}
+	<div class="widewrapper main">
+        <div class="container">
+            <div class="row">
+				{block name="left"}{/block}
+				{block name="right"}{include file="public/right"}{/block}
+            </div>
+        </div>
+    </div>
+	{block name="footer"}{include file="public/footer"}{/block}
+</body>
+</html>

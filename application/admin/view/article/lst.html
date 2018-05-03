@@ -1,0 +1,176 @@
+﻿{extend name="base" /}
+{block name="right"}
+<div class="main-content">
+	<div class="breadcrumbs" id="breadcrumbs">
+		<ul class="breadcrumb">
+			<li>
+				<i class="icon-home home-icon"></i>
+				<a href="#">首页</a>
+			</li>
+			<li class="active">控制台</li>
+		</ul><!-- .breadcrumb -->
+
+		<div class="nav-search" id="nav-search">
+			<form class="form-search">
+				<span class="input-icon">
+					<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+					<i class="icon-search nav-search-icon"></i>
+				</span>
+			</form>
+		</div><!-- #nav-search -->
+	</div>
+
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				标签管理
+				<small>
+					<i class="icon-double-angle-right"></i>
+					标签列表
+				</small>
+			</h1>
+		</div><!-- /.page-header -->
+
+		<div class="row">
+			<div class="col-xs-12">
+				<!-- PAGE CONTENT BEGINS -->
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered table-hover" id="sample-table-1">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>文章标题名称</th>
+								<th>文章作者</th>
+								<th>文章图片</th>
+								<th>文章标签</th>
+								<th>创建时间</th>
+								<th>修改时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							{volist name="article_select" id="vo"}
+							<tr>
+								<td>{$vo.id}</td>
+								<td>{$vo.title}</td>
+								<td>{$vo.author}</td>
+								<td><img src="__IMG__/{$vo.img}" alt="" width="100"></td>
+								<td>
+									{volist name="$vo.tags" id="vo1"}
+									<div class="deltags">
+										<input type="hidden" name="id" value="{$vo1.id}">
+										<span>{$vo1.name}</span>
+										<button class="btn btn-xs btn-danger">
+											<i class="icon-trash bigger-120"></i>
+										</button>
+									</div>
+									{/volist}
+									<input type="text" class="tags" placeholder="请添加新的标签">
+									<button class="btn btn-xs btn-success">
+										<i class="icon-check bigger-120"></i>
+									</button>
+									<div></div>
+								</td>
+								<td>{$vo.create_time}</td>
+								<td>{$vo.update_time}</td>
+								<td>
+									<div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+										<a href="{:url('upd',array('id'=>$vo.id))}">
+											<button class="btn btn-xs btn-info">
+												<i class="icon-edit bigger-120"></i>
+											</button>
+										</a>
+
+										<a href="">
+											<button class="btn btn-xs btn-danger">
+												<i class="icon-trash bigger-120"></i>
+											</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+							{/volist}
+						</tbody>
+					</table>{$article_select|raw}
+				</div>
+				<!-- PAGE CONTENT ENDS -->
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.page-content -->
+</div><!-- /.main-content -->
+<script>
+	$(function(){
+		$(".btn-success").bind('click',function(){
+			var $value = $(this).prev().val();
+			if ($value.length==0) {
+				alert('请输入标签');
+			} else {
+				var $id = $(this).parents('tr').find('td:eq(0)').html();
+				$.ajax({
+					type:'post',
+					data:{'id':$id,'value':$value},
+					url:"{:url('admin/article/articleTagsAjax')}",
+					success:function($data){
+						if($data.status==0){
+							alert("没有这个标签，请手动添加");
+							window.location.reload();
+						} else
+						if($data.status==-1){
+							alert('标签已经存在！');
+							window.location.reload();
+						} else
+						if($data.status==-2){
+							alert('标签添加失败');
+							window.location.reload();
+						} else
+						if($data.status==1){
+							alert("标签添加成功");
+							window.location.reload();
+						}
+					}
+				})
+			}
+		});
+
+		$(".tags").on('keyup',function(){
+			var $value = $(this).val();
+			var _this = $(this);
+			if($value.length){
+				$.ajax({
+					type:'post',
+					data:{'tags':$value},
+					url:"{:url('admin/article/findTagsAjax')}",
+					success:function($data){
+						if($data != '') {
+							$(_this).nextAll('div').html('');
+							$.each($data,function(i,e){
+								$(_this).nextAll('div').append(e.name+'<br>');
+							})
+						} else {
+							$(_this).nextAll('div').html('');
+						}
+					}
+				})
+			} else {
+				$(_this).nextAll('div').html('');
+			}
+		});
+
+		$(".deltags").click(function(event) {
+			/* Act on the event */
+			var $tags_id = $(this).find("input:hidden").val();
+			var $article_id = $(this).parents("tr").find("td:eq(0)").html();
+			$.ajax({
+				url: '{:url("admin/article/articleTagsDelAjax")}',
+				type: 'post',
+				data: {'tags_id': $tags_id,'article_id':$article_id},
+				success:function(data){
+					alert("标签删除成功");
+					window.location.reload();
+				}
+			});
+		});
+	})
+</script>
+{/block}

@@ -1,0 +1,62 @@
+﻿{extend name="base" /}
+{block name="right"}
+<div class="main-content">
+	<div class="breadcrumbs" id="breadcrumbs">
+		<script type="text/javascript">
+			try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+		</script>
+
+		<ul class="breadcrumb">
+			<li>
+				<i class="icon-home home-icon"></i>
+				<a href="#">首页</a>
+			</li>
+			<li class="active">控制台</li>
+		</ul><!-- .breadcrumb -->
+
+		<div class="nav-search" id="nav-search">
+			<form class="form-search">
+				<span class="input-icon">
+					<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+					<i class="icon-search nav-search-icon"></i>
+				</span>
+			</form>
+		</div><!-- #nav-search -->
+	</div>
+
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				标签管理
+				<small>
+					<i class="icon-double-angle-right"></i>
+					标签添加
+				</small>
+			</h1>
+		</div><!-- /.page-header -->
+		<div class="row">
+			<div class="col-xs-12">
+				<!-- PAGE CONTENT BEGINS -->
+				<div class="page-content">
+					<!-- PAGE CONTENT BEGINS -->
+					<form class="form-horizontal" role="form" method="post" action="{:url('addhanddle')}">
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1">请输入标签名称</label>
+							<div class="col-sm-9">
+								<input name="name" class="col-xs-10 col-sm-5" id="form-field-1" type="text" placeholder="标签名称不能为空">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>
+							<div class="col-sm-9">
+								<input class="col-xs-10 col-sm-5 btn btn-info" id="form-field-1" type="submit" value="提交">
+							</div>
+						</div>
+					</form>
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div>
+		<!-- PAGE CONTENT ENDS -->
+	</div><!-- /.page-content -->
+</div><!-- /.main-content -->
+{/block}
