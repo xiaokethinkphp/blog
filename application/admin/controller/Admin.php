@@ -1,10 +1,9 @@
 <?php
 namespace app\admin\controller;
-use \think\Controller;
 /**
  *管理员控制器
  */
-class Admin extends Controller
+class Admin extends Common
 {
   // 添加管理员界面显示
   public function add()
@@ -97,5 +96,17 @@ class Admin extends Controller
           // 不是通过post请求访问本页面，直接跳转
           $this->redirect("admin/admin/lst");
       }
+  }
+  // 删除管理员方法
+  public function del($id='')
+  {
+      // 进行管理员的删除
+      $admin_del_result = db("admin")->delete($id);
+      if ($admin_del_result) {
+          $this->success("管理员删除成功","admin/admin/lst");
+      } else {
+          $this->error("管理员删除失败","admin/admin/lst");
+      }
+
   }
 }

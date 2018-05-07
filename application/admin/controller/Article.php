@@ -1,10 +1,9 @@
 <?php
 namespace app\admin\controller;
-use \think\Controller;
 /**
 * 文章控制器
 */
-class Article extends Controller
+class Article extends Common
 {
 	/*添加文章界面显示*/
 	public function add()

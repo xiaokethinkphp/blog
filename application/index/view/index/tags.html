@@ -1,0 +1,31 @@
+ {extend name="base" /}
+ {block name="left"}
+ <div class="col-md-8 blog-main">
+     {volist name="articles" id="vo"}
+ 	<div class="row">
+        {volist name="vo" id="vo1"}
+ 		<div class="col-md-6 col-sm-6">
+ 			<article class=" blog-teaser">
+ 				<header>
+ 					<img src="__IMG__/{$vo1['img']}" alt="">
+ 					<h3><a href="{:url('index/article/article',array('id'=>$vo1['id']))}">{$vo1['title']}</a></h3>
+ 					<span class="meta">{$vo1['update_time']|date="Y年m月d日"}</span>
+ 					<hr>
+ 				</header>
+ 				<div class="body">
+ 					{$vo1['contents']}
+ 				</div>
+ 				<div class="clearfix">
+ 					<a href="{:url('index/article/article',array('id'=>$vo1['id']))}" class="btn btn-clean-one">Read more</a>
+ 				</div>
+ 			</article>
+ 		</div>
+        {/volist}
+ 	</div>
+ 	<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >手机网站模板</a></div>
+    {/volist}
+ 	<div class="paging">
+        
+ 	</div>
+ </div>
+ {/block}

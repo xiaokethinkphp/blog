@@ -1,32 +1,29 @@
     {extend name="base" /}
     {block name="left"}
-    
+
     <div class="col-md-8 blog-main">
     	<article class="blog-post">
     		<header>
-    			
+
     			<div class="lead-image">
-    				<img src="__INDEX__/img/single-post.jpg" alt="" class="img-responsive">
-    				
+    				<img src="__IMG__/{$article.img}" alt="" class="img-responsive">
+
     			</div>
     		</header>
     		<div class="body">
-    			<h1>Responsive HTML5 Template</h1>
+    			<h1>{$article.title}</h1>
     			<div class="meta">
-    				<i class="fa fa-user"></i> John Doe <i class="fa fa-calendar"></i>23 Agustus 2015<i class="fa fa-comments"></i><span class="data"><a href="#comments">3 Comments</a></span>
-    			</div>
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas voluptatem et minima quo amet ducimus. Voluptatum soluta tenetur ducimus fugiat, sint voluptate eveniet adipisci nulla asperiores distinctio laudantium eos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident tenetur, consectetur dolores nostrum, numquam facere a dicta eum nam suscipit consequuntur dolorem aspernatur molestias vero quo id tempore vel possimus.</p>
-
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas voluptatem et minima quo amet ducimus. Voluptatum soluta tenetur ducimus fugiat, sint voluptate eveniet adipisci nulla asperiores distinctio laudantium eos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident tenetur, consectetur dolores nostrum, numquam facere a dicta eum nam suscipit consequuntur dolorem aspernatur molestias vero quo id tempore vel possimus.</p>
-
-
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas voluptatem et minima quo amet ducimus. Voluptatum soluta tenetur ducimus fugiat, sint voluptate eveniet adipisci nulla asperiores distinctio laudantium eos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident tenetur, consectetur dolores nostrum, numquam facere a dicta eum nam suscipit consequuntur dolorem aspernatur molestias vero quo id tempore vel possimus.</p>
-
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas voluptatem et minima quo amet ducimus. Voluptatum soluta tenetur ducimus fugiat, sint voluptate eveniet adipisci nulla asperiores.</p>
-
+    				<i class="fa fa-user"></i>{$article.author}<i class="fa fa-calendar"></i>{$article.update_time|date="Y年m月d日"}<i class="fa fa-comments"></i><span class="data"><a href="#comments">{$article.clicks}Clicks</a></span>
+                    <i class="fa fa-tags">
+                        {volist name="$article.tags" id="vo"}
+                        {$vo.name}
+                        {/volist}
+                    </i>
+                </div>
+    			<p>{$article.contents}</p>
     		</div>
     	</article>
 
     </div>
-    
+
     {/block}

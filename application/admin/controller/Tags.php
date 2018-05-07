@@ -1,10 +1,9 @@
 <?php
 namespace app\admin\controller;
-use \think\Controller;
 /**
 * 后台标签控制器
 */
-class Tags extends Controller
+class Tags extends Common
 {
 	/*标签列表*/
 	public function lst()

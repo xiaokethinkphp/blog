@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 03/05/2018 10:10:09
+ Date: 05/05/2018 08:20:43
 */
 
 SET NAMES utf8mb4;
@@ -32,8 +32,6 @@ CREATE TABLE `xk_admin`  (
 -- ----------------------------
 -- Records of xk_admin
 -- ----------------------------
-INSERT INTO `xk_admin` VALUES (4, 'xiaoming', '25d55ad283aa400af464c76d713c07ad');
-INSERT INTO `xk_admin` VALUES (5, 'xiaohong', '200820e3227815ed1756a6b531e7e0d2');
 INSERT INTO `xk_admin` VALUES (6, 'xiaohong2', 'd3fefe762f0a3a397c504f968af3a2cc');
 INSERT INTO `xk_admin` VALUES (7, 'xiaoming1', 'e10adc3949ba59abbe56e057f20f883e');
 
@@ -49,23 +47,24 @@ CREATE TABLE `xk_article`  (
   `create_time` float(20, 0) NULL DEFAULT NULL,
   `update_time` float(20, 0) NULL DEFAULT NULL,
   `contents` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `clicks` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of xk_article
 -- ----------------------------
-INSERT INTO `xk_article` VALUES (1, '小可老师111', '是时候学习PHP10了', '20180421\\ff5fe8f362a301f8dc09808f488adce2.jpg', 1524281600, 1524308096, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 hahah');
-INSERT INTO `xk_article` VALUES (2, '小可老师', '是时候学习PHP7了', '20180421\\4d74d6afe92a8958906a84e9da79f28e.jpg', 1524281600, 1524304384, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
-INSERT INTO `xk_article` VALUES (3, '小可老师', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
-INSERT INTO `xk_article` VALUES (4, '小可老师', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
-INSERT INTO `xk_article` VALUES (5, '小可老师', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
-INSERT INTO `xk_article` VALUES (6, '小可老师', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
-INSERT INTO `xk_article` VALUES (7, '小可老师', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
-INSERT INTO `xk_article` VALUES (8, '小可老师', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
-INSERT INTO `xk_article` VALUES (9, '小可老师', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
-INSERT INTO `xk_article` VALUES (10, '小可老师', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
-INSERT INTO `xk_article` VALUES (11, '小可老师', '是时候学习PHP7了', '20180421\\799f2abb6e9912cd235441653af3052d.jpg', 1524304128, 1524304128, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ');
+INSERT INTO `xk_article` VALUES (1, '小可老师1', '是时候学习PHP10了', '20180421\\ff5fe8f362a301f8dc09808f488adce2.jpg', 1524281600, 1524308096, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 11);
+INSERT INTO `xk_article` VALUES (2, '小可老师2', '是时候学习PHP7了', '20180421\\4d74d6afe92a8958906a84e9da79f28e.jpg', 1524281600, 1524304384, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 22);
+INSERT INTO `xk_article` VALUES (3, '小可老师3', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281344, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 13);
+INSERT INTO `xk_article` VALUES (4, '小可老师4', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281216, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 4);
+INSERT INTO `xk_article` VALUES (5, '小可老师5', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524280960, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 9);
+INSERT INTO `xk_article` VALUES (6, '小可老师6', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524280960, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 8);
+INSERT INTO `xk_article` VALUES (7, '小可老师7', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 100);
+INSERT INTO `xk_article` VALUES (8, '小可老师8', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 22);
+INSERT INTO `xk_article` VALUES (9, '小可老师9', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 33);
+INSERT INTO `xk_article` VALUES (10, '小可老师10', '是时候学习PHP7了', '20180421\\aab7024aade5b426d8173de3c0774c55.jpg', 1524281600, 1524281600, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 55);
+INSERT INTO `xk_article` VALUES (11, '小可老师11', '是时候学习PHP7了', '20180421\\799f2abb6e9912cd235441653af3052d.jpg', 1524304128, 1524304128, '标量类型声明 有两种模式: 强制 (默认) 和 严格模式。 现在可以使用下列类型参数（无论用强制模式还是严格模式）： 字符串(string), 整数 (int), 浮点数 (float), 以及布尔值 (bool)。它们扩充了PHP5中引入的其他类型：类名，接口，数组和 回调类型。 ', 77);
 
 -- ----------------------------
 -- Table structure for xk_article_tags
@@ -79,7 +78,17 @@ CREATE TABLE `xk_article_tags`  (
 -- ----------------------------
 -- Records of xk_article_tags
 -- ----------------------------
+INSERT INTO `xk_article_tags` VALUES (1, 7);
+INSERT INTO `xk_article_tags` VALUES (1, 6);
+INSERT INTO `xk_article_tags` VALUES (1, 5);
 INSERT INTO `xk_article_tags` VALUES (4, 14);
+INSERT INTO `xk_article_tags` VALUES (1, 8);
+INSERT INTO `xk_article_tags` VALUES (1, 9);
+INSERT INTO `xk_article_tags` VALUES (1, 1);
+INSERT INTO `xk_article_tags` VALUES (2, 1);
+INSERT INTO `xk_article_tags` VALUES (3, 1);
+INSERT INTO `xk_article_tags` VALUES (4, 1);
+INSERT INTO `xk_article_tags` VALUES (5, 1);
 
 -- ----------------------------
 -- Table structure for xk_messages

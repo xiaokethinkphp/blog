@@ -1,33 +1,27 @@
 <aside class="col-md-4 blog-aside">
-    
+
     <div class="aside-widget">
         <header>
-            <h3>Featured Post</h3>
+            <h3>最新发表</h3>
         </header>
         <div class="body">
             <ul class="clean-list">
-                <li><a href="">Clean - Responsive HTML5 Template</a></li>
-                <li><a href="">Responsive Pricing Table</a></li>
-                <li><a href="">Yellow HTML5 Template</a></li>
-                <li><a href="">Blackor Responsive Theme</a></li>
-                <li><a href="">Portfolio Bootstrap Template</a></li>
-                <li><a href="">Clean Slider Template</a></li>
+                {volist name="article_select_orderByUpdateTime" id="vo"}
+                <li><a href="{:url('index/article/article',array('id'=>$vo.id))}">{$vo.title}</a></li>
+                {/volist}
             </ul>
         </div>
     </div>
-    
+
     <div class="aside-widget">
         <header>
-            <h3>Related Post</h3>
+            <h3>点击最多</h3>
         </header>
         <div class="body">
             <ul class="clean-list">
-                <li><a href="">Blackor Responsive Theme</a></li>
-                <li><a href="">Portfolio Bootstrap Template</a></li>
-                <li><a href="">Clean Slider Template</a></li>
-                <li><a href="">Clean - Responsive HTML5 Template</a></li>
-                <li><a href="">Responsive Pricing Table</a></li>
-                <li><a href="">Yellow HTML5 Template</a></li>
+                {volist name="article_select_orderByClicks" id="vo"}
+                <li><a href="{:url('index/article/article',array('id'=>$vo.id))}">{$vo.title}</a></li>
+                {/volist}
             </ul>
         </div>
     </div>
@@ -38,14 +32,9 @@
         </header>
         <div class="body clearfix">
             <ul class="tags">
-                <li><a href="#">HTML5</a></li>
-                <li><a href="#">CSS3</a></li>
-                <li><a href="#">COMPONENTS</a></li>
-                <li><a href="#">TEMPLATE</a></li>
-                <li><a href="#">PLUGIN</a></li>
-                <li><a href="#">BOOTSTRAP</a></li>
-                <li><a href="#">TUTORIAL</a></li>
-                <li><a href="#">UI/UX</a></li>                            
+                {volist name="tags_select" id="vo"}
+                <li><a href="{:url('index/index/tags',array('id'=>$vo.id))}">{$vo.name}</a></li>
+                {/volist}
             </ul>
         </div>
     </div>
